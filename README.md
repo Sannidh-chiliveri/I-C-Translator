@@ -1,4 +1,4 @@
-# 🧩 I²C Address Translator
+# 🧠  I²C Address Translator
 Recruitment Task – Vicharak Technologies
 
 # 🧾 1. Abstract
