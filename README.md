@@ -18,6 +18,9 @@ The module operates as an I²C slave on the main bus (connected to a host master
 
 It dynamically translates the address of the target device while maintaining data integrity, enabling communication between devices with conflicting I²C addresses.
 
+📄 For detailed understanding and internal working explanation, refer to:
+👉 TRANSLATOR_UNDERSTANDING.docx
+
 # ⚙️ 3. Functional Description
 Main Bus (Slave Side): Receives I²C transactions from the host master.
 
@@ -37,6 +40,9 @@ Submodules: FSM-based control, address decoding, and data path logic.
 Synthesis Tool: Xilinx Vivado
 
 Target FPGA: (e.g., Artix-7 XC7A35T – specify if applicable)
+
+📄 For complete Verilog design code, refer to:
+👉 i2c_translator.v.docx
 
 # 🧩 5. Current Status
 ✅ Design Implementation:
@@ -68,8 +74,10 @@ HDL Language: Verilog
 IDE/Simulator: Xilinx Vivado
 
 
+# 📘 File Navigation Guide:
+
+🧩 i2c_translator.v.docx → Contains Verilog design code for the I²C Translator.
+
+📖 TRANSLATOR_UNDERSTANDING.docx → Provides detailed functional understanding and explanation of the translator design.
 
 
-
-No file chosenNo file chosen
-ChatGPT can make mistakes. Check important info. See Cookie Preferences.
