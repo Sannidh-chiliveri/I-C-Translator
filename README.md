@@ -1,77 +1,65 @@
-# I-C-Translator
-This project implements an I²C Address Translator in Verilog HDL. It acts as a slave on the main bus and a master on the target bus, enabling address translation with bidirectional read/write support. Designed using FSMs, verified on FPGA with Vivado for standard and fast I²C modes.
+# 🧠 FPGA-Based Dual-Level I²C Address Translator  
+**Author:** Chiliveri Sannidh  
+**Task Assigned By:** Vicharak  
+**Date:** October 2025  
 
-# 🧩 I²C Address Translator
-Recruitment Task – Vicharak Technologies
+---
 
-# 📘 Overview
-This project implements an I²C Address Translator using Verilog HDL.
-The module acts as an I²C slave on the main bus (connected to a host master) and as an I²C master on the target bus (connected to one or more downstream slave devices).
-It translates the address of the target device dynamically while keeping the data transmission intact, allowing communication between devices that have conflicting I²C addresses.
+## 🔍 Project Highlights
 
-# ⚙️ Functional Description
-Main Bus (Slave Side): Receives I²C transactions from the host master.
+| Feature | Description |
+|----------|-------------|
+| **Project Type** | RTL Design & FPGA Implementation |
+| **Protocol** | I²C Dual-Level Address Translation |
+| **Language Used** | Verilog HDL |
+| **Tool Used** | Xilinx Vivado 2023.1 |
+| **Status** | RTL Implementation Verified ✅ |
+| **Testbench** | Under Development 🔧 |
+| **Submitted To** | Vicharak |
 
-Target Bus (Master Side): Initiates I²C transactions to the selected slave device.
+---
 
-Translation Logic: Modifies the address field in the I²C packet while maintaining data integrity.
+## 🧾 1. Abstract
 
-Bidirectional Data Handling: Supports both read and write operations.
+The **I²C Address Translator** is a digital communication bridge designed to resolve address conflicts between multiple I²C slave devices sharing the same physical address.  
+In a standard I²C system, multiple devices with identical addresses cannot coexist on the same bus.  
+This project overcomes that limitation by introducing an **FPGA-based translation layer** that maps unique *virtual addresses* to a *common physical address*.
 
-Clock and Data Line Control: Ensures proper synchronization and timing according to I²C protocol (Standard/ Fast Mode).
+The translator acts as:
+- **I²C Slave** to the external master (e.g., microcontroller or processor).  
+- **I²C Master** to two target slave devices.
 
-# 🧱 Design Structure
-Top Module: i2c_translator.v
+This allows seamless and transparent read/write communication between the external master and the target slaves through address translation logic.
 
-Submodules: FSM-based control, address decoding, and data path logic.
+---
 
-Synthesis Tool: Xilinx Vivado
+## 🧩 2. Introduction
 
-Target FPGA: (You can specify the board here, e.g., Artix-7 XC7A35T if applicable)
+The **I²C (Inter-Integrated Circuit)** protocol is a widely used two-wire serial communication standard that enables multiple devices to share a common bus.  
+However, when two or more devices have identical slave addresses, only one can communicate at a time — a serious limitation in multi-sensor or modular systems.
 
-# 🧩 Current Status
-✅ Design Implementation:
+This project implements a **Dual-Level I²C Address Translator** using Verilog HDL on an FPGA platform to eliminate address conflicts.  
+It introduces a layer that translates **virtual addresses (0x49, 0x4A)** into a **common physical address (0x48)**, allowing two identical devices to function simultaneously under a single master.
 
-The Verilog design code has been successfully written and synthesized.
+### 🔧 Key Applications
+- Multi-sensor systems using identical I²C devices.  
+- Industrial control setups with repeated device types.  
+- Redundant communication systems requiring mirrored sensors.
 
-RTL implementation and elaboration were completed without any errors.
+---
 
-# 🧪 Testbench Development:
+## ⚙️ 3. System Overview
 
-The testbench for functional verification is under progress.
+The translator monitors transactions from the external master, decodes the 7-bit address, and determines which target device to communicate with.  
 
-Partial code has been developed, and debugging is ongoing to remove logical and syntax errors.
+| Virtual Address | Physical Address | Target |
+|-----------------|------------------|--------|
+| 0x49 | 0x48 | Target 1 |
+| 0x4A | 0x48 | Target 2 |
 
-The final version will include proper I²C transaction simulations verifying address translation and data integrity.
+This address mapping ensures that each device appears unique to the master, even if they share the same internal hardware address.
 
-Incomplete or error-prone code is not included in this submission to maintain report clarity and quality.
+---
 
-With additional time, the testbench will be refined to achieve complete simulation verification.
-
-# 🔮 Future Scope
-Complete the testbench for full functional verification.
-
-Perform waveform analysis for read/write transactions.
-
-Extend design to support multi-slave dynamic translation.
-
-Integrate timing analysis and clock stretching features for robustness.
-
-# 🧰 Tools Used
-HDL Language: Verilog
-
-IDE/Simulator: Xilinx Vivado
-
-Version Control: Git & GitHub
-
-# 👤 Author
-Sannidh Chiliveri
-
-RTL Design Enthusiast | FPGA Developer
-
-Contact: (You may add your email or LinkedIn link)
-
-# 🔒 Access
-This repository is private and shared exclusively with Vicharak Technologies as part of the recruitment evaluation.
-Collaborator added: recruit-vicharak
+## 🧱 4. System Architecture
 
