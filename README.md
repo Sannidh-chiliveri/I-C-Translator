@@ -1,7 +1,7 @@
-# 🧠  I²C Address Translator
+#### 🧠  I²C Address Translator
 Recruitment Task – Vicharak Technologies
 
-# 🧾 1. Abstract
+## 🧾 1. Abstract
 The I²C Address Translator is a digital communication bridge designed to resolve address conflicts between multiple I²C slave devices sharing the same physical address.
 In a standard I²C system, multiple devices with identical addresses cannot coexist on the same bus.
 This project overcomes that limitation by introducing an FPGA-based translation layer that maps unique virtual addresses to a common physical address.
