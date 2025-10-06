@@ -1,7 +1,7 @@
-#### 🧠  I²C Address Translator
+# 🧠  I²C Address Translator
 Recruitment Task – Vicharak Technologies
 
-## 🧾 1. Abstract
+# 🧾 1. Abstract
 The I²C Address Translator is a digital communication bridge designed to resolve address conflicts between multiple I²C slave devices sharing the same physical address.
 In a standard I²C system, multiple devices with identical addresses cannot coexist on the same bus.
 This project overcomes that limitation by introducing an FPGA-based translation layer that maps unique virtual addresses to a common physical address.
@@ -39,19 +39,19 @@ Synthesis Tool: Xilinx Vivado
 Target FPGA: (e.g., Artix-7 XC7A35T – specify if applicable)
 
 # 🧩 5. Current Status
-✅ Design Implementation
-Verilog design code successfully written and synthesized.
+✅ Design Implementation:
+1.Verilog design code successfully written and synthesized.
 
-RTL elaboration and implementation completed without any errors.
+2.RTL elaboration and implementation completed without any errors.
 
-🧪 Testbench Development
-Testbench development is in progress.
+🧪 Testbench Development:
+1.Testbench development is in progress.
 
-Partial code written; debugging and refinement ongoing.
+2.Partial code written; debugging and refinement ongoing.
 
-Incomplete or error-prone testbench code is not included to maintain clarity and quality.
+3.Incomplete or error-prone testbench code is not included to maintain clarity and quality.
 
-With additional time, complete verification through simulation will be achieved.
+4.With additional time, complete verification through simulation will be achieved.
 
 # 🔮 6. Future Scope
 Complete the testbench for full functional verification.
